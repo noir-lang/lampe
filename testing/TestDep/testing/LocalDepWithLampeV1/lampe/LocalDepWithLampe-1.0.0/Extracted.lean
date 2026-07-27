@@ -2,9 +2,9 @@
 
 import «LocalDepWithLampe-1.0.0».Extracted.GeneratedTypes
 import «LocalDepWithLampe-1.0.0».Extracted.Lib
-import «std-1.0.0-beta.14».Extracted
+import std.Extracted
 
 namespace «LocalDepWithLampe-1.0.0»
 
 def env := Lib.env
-  ++ «std-1.0.0-beta.14».env
+  ++ std.env

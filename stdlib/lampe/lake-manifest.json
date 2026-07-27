@@ -98,5 +98,5 @@
    "inputRev": "v4.29.0",
    "inherited": true,
    "configFile": "lakefile.toml"}],
- "name": "«std-1.0.0-beta.14»",
+ "name": "std",
  "lakeDir": ".lake"}

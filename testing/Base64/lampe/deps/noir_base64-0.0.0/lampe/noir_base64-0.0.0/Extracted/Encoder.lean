@@ -17,32 +17,32 @@ noir_def «noir_base64-0.0.0»::encoder::Base64EncodeBE::encode<InputBytes: u32>
   («noir_base64-0.0.0»::encoder::encode<InputBytes: u32, 0: u1, 1: u32> as λ(Array<u8, InputBytes: u32>) -> Array<u8, ((((InputBytes * 8) / 6) + (((InputBytes % 3) % 2) * 3)) + (((InputBytes % 3) / 2) * 2)): u32>)(input)
 }
 
-noir_def «noir_base64-0.0.0»::encoder::Base64EncodeBE::encode_var<MAX_INPUT_LEN: u32>(input: «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, MAX_INPUT_LEN: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + (((MAX_INPUT_LEN % 3) % 2) * 3)) + (((MAX_INPUT_LEN % 3) / 2) * 2)): u32> := {
-  («noir_base64-0.0.0»::encoder::encode_var<MAX_INPUT_LEN: u32, 0: u1, 1: u32> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, MAX_INPUT_LEN: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + (((MAX_INPUT_LEN % 3) % 2) * 3)) + (((MAX_INPUT_LEN % 3) / 2) * 2)): u32>)(input)
+noir_def «noir_base64-0.0.0»::encoder::Base64EncodeBE::encode_var<MAX_INPUT_LEN: u32>(input: std::collections::bounded_vec::BoundedVec<u8, MAX_INPUT_LEN: u32>) -> std::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + (((MAX_INPUT_LEN % 3) % 2) * 3)) + (((MAX_INPUT_LEN % 3) / 2) * 2)): u32> := {
+  («noir_base64-0.0.0»::encoder::encode_var<MAX_INPUT_LEN: u32, 0: u1, 1: u32> as λ(std::collections::bounded_vec::BoundedVec<u8, MAX_INPUT_LEN: u32>) -> std::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + (((MAX_INPUT_LEN % 3) % 2) * 3)) + (((MAX_INPUT_LEN % 3) / 2) * 2)): u32>)(input)
 }
 
 noir_def «noir_base64-0.0.0»::encoder::Base64EncodeBENoPad::encode<InputBytes: u32>(input: Array<u8, InputBytes: u32>) -> Array<u8, ((((InputBytes * 8) / 6) + ((InputBytes % 3) % 2)) + ((InputBytes % 3) / 2)): u32> := {
   («noir_base64-0.0.0»::encoder::encode<InputBytes: u32, 0: u1, 0: u32> as λ(Array<u8, InputBytes: u32>) -> Array<u8, ((((InputBytes * 8) / 6) + ((InputBytes % 3) % 2)) + ((InputBytes % 3) / 2)): u32>)(input)
 }
 
-noir_def «noir_base64-0.0.0»::encoder::Base64EncodeBENoPad::encode_var<MAX_INPUT_LEN: u32>(input: «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, MAX_INPUT_LEN: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((MAX_INPUT_LEN % 3) % 2)) + ((MAX_INPUT_LEN % 3) / 2)): u32> := {
-  («noir_base64-0.0.0»::encoder::encode_var<MAX_INPUT_LEN: u32, 0: u1, 0: u32> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, MAX_INPUT_LEN: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((MAX_INPUT_LEN % 3) % 2)) + ((MAX_INPUT_LEN % 3) / 2)): u32>)(input)
+noir_def «noir_base64-0.0.0»::encoder::Base64EncodeBENoPad::encode_var<MAX_INPUT_LEN: u32>(input: std::collections::bounded_vec::BoundedVec<u8, MAX_INPUT_LEN: u32>) -> std::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((MAX_INPUT_LEN % 3) % 2)) + ((MAX_INPUT_LEN % 3) / 2)): u32> := {
+  («noir_base64-0.0.0»::encoder::encode_var<MAX_INPUT_LEN: u32, 0: u1, 0: u32> as λ(std::collections::bounded_vec::BoundedVec<u8, MAX_INPUT_LEN: u32>) -> std::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((MAX_INPUT_LEN % 3) % 2)) + ((MAX_INPUT_LEN % 3) / 2)): u32>)(input)
 }
 
 noir_def «noir_base64-0.0.0»::encoder::Base64EncodeBEUrlSafe::encode<InputBytes: u32>(input: Array<u8, InputBytes: u32>) -> Array<u8, ((((InputBytes * 8) / 6) + ((InputBytes % 3) % 2)) + ((InputBytes % 3) / 2)): u32> := {
   («noir_base64-0.0.0»::encoder::encode<InputBytes: u32, 1: u1, 0: u32> as λ(Array<u8, InputBytes: u32>) -> Array<u8, ((((InputBytes * 8) / 6) + ((InputBytes % 3) % 2)) + ((InputBytes % 3) / 2)): u32>)(input)
 }
 
-noir_def «noir_base64-0.0.0»::encoder::Base64EncodeBEUrlSafe::encode_var<MAX_INPUT_LEN: u32>(input: «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, MAX_INPUT_LEN: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((MAX_INPUT_LEN % 3) % 2)) + ((MAX_INPUT_LEN % 3) / 2)): u32> := {
-  («noir_base64-0.0.0»::encoder::encode_var<MAX_INPUT_LEN: u32, 1: u1, 0: u32> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, MAX_INPUT_LEN: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((MAX_INPUT_LEN % 3) % 2)) + ((MAX_INPUT_LEN % 3) / 2)): u32>)(input)
+noir_def «noir_base64-0.0.0»::encoder::Base64EncodeBEUrlSafe::encode_var<MAX_INPUT_LEN: u32>(input: std::collections::bounded_vec::BoundedVec<u8, MAX_INPUT_LEN: u32>) -> std::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((MAX_INPUT_LEN % 3) % 2)) + ((MAX_INPUT_LEN % 3) / 2)): u32> := {
+  («noir_base64-0.0.0»::encoder::encode_var<MAX_INPUT_LEN: u32, 1: u1, 0: u32> as λ(std::collections::bounded_vec::BoundedVec<u8, MAX_INPUT_LEN: u32>) -> std::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((MAX_INPUT_LEN % 3) % 2)) + ((MAX_INPUT_LEN % 3) / 2)): u32>)(input)
 }
 
 noir_def «noir_base64-0.0.0»::encoder::Base64EncodeBEUrlSafeWithPad::encode<InputBytes: u32>(input: Array<u8, InputBytes: u32>) -> Array<u8, ((((InputBytes * 8) / 6) + (((InputBytes % 3) % 2) * 3)) + (((InputBytes % 3) / 2) * 2)): u32> := {
   («noir_base64-0.0.0»::encoder::encode<InputBytes: u32, 1: u1, 1: u32> as λ(Array<u8, InputBytes: u32>) -> Array<u8, ((((InputBytes * 8) / 6) + (((InputBytes % 3) % 2) * 3)) + (((InputBytes % 3) / 2) * 2)): u32>)(input)
 }
 
-noir_def «noir_base64-0.0.0»::encoder::Base64EncodeBEUrlSafeWithPad::encode_var<MAX_INPUT_LEN: u32>(input: «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, MAX_INPUT_LEN: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + (((MAX_INPUT_LEN % 3) % 2) * 3)) + (((MAX_INPUT_LEN % 3) / 2) * 2)): u32> := {
-  («noir_base64-0.0.0»::encoder::encode_var<MAX_INPUT_LEN: u32, 1: u1, 1: u32> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, MAX_INPUT_LEN: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + (((MAX_INPUT_LEN % 3) % 2) * 3)) + (((MAX_INPUT_LEN % 3) / 2) * 2)): u32>)(input)
+noir_def «noir_base64-0.0.0»::encoder::Base64EncodeBEUrlSafeWithPad::encode_var<MAX_INPUT_LEN: u32>(input: std::collections::bounded_vec::BoundedVec<u8, MAX_INPUT_LEN: u32>) -> std::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + (((MAX_INPUT_LEN % 3) % 2) * 3)) + (((MAX_INPUT_LEN % 3) / 2) * 2)): u32> := {
+  («noir_base64-0.0.0»::encoder::encode_var<MAX_INPUT_LEN: u32, 1: u1, 1: u32> as λ(std::collections::bounded_vec::BoundedVec<u8, MAX_INPUT_LEN: u32>) -> std::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + (((MAX_INPUT_LEN % 3) % 2) * 3)) + (((MAX_INPUT_LEN % 3) / 2) * 2)): u32>)(input)
 }
 
 noir_def «noir_base64-0.0.0»::encoder::encode_elements<InputElements: u32, UseUrlTable: u1>(input: Array<u8, InputElements: u32>) -> Array<u8, InputElements: u32> := {
@@ -60,12 +60,12 @@ noir_def «noir_base64-0.0.0»::encoder::encode_elements<InputElements: u32, Use
   (#_readRef returning Array<u8, InputElements: u32>)(result)
 }
 
-noir_def «noir_base64-0.0.0»::encoder::encode_var<MAX_INPUT_LEN: u32, UseURLTable: u1, HasPadding: u32>(input: «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, MAX_INPUT_LEN: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((HasPadding + 1) * ((MAX_INPUT_LEN % 3) / 2))) + (((MAX_INPUT_LEN % 3) % 2) * ((HasPadding * 2) + 1))): u32> := {
+noir_def «noir_base64-0.0.0»::encoder::encode_var<MAX_INPUT_LEN: u32, UseURLTable: u1, HasPadding: u32>(input: std::collections::bounded_vec::BoundedVec<u8, MAX_INPUT_LEN: u32>) -> std::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((HasPadding + 1) * ((MAX_INPUT_LEN % 3) / 2))) + (((MAX_INPUT_LEN % 3) % 2) * ((HasPadding * 2) + 1))): u32> := {
   (#_assert returning Unit)((#_bOr returning bool)((#_uEq returning bool)(uConst!(HasPadding: u32), (0: u32)), (#_uEq returning bool)(uConst!(HasPadding: u32), (1: u32))));
   let result_arr = (#_ref returning & Array<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((HasPadding + 1) * ((MAX_INPUT_LEN % 3) / 2))) + (((MAX_INPUT_LEN % 3) % 2) * ((HasPadding * 2) + 1))): u32>)((#_mkRepeatedArray returning Array<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((HasPadding + 1) * ((MAX_INPUT_LEN % 3) / 2))) + (((MAX_INPUT_LEN % 3) % 2) * ((HasPadding * 2) + 1))): u32>)((0: u8)));
   let output_length = (#_uAdd returning u32)((#_uAdd returning u32)((#_uDiv returning u32)((#_uMul returning u32)(uConst!(MAX_INPUT_LEN: u32), (8: u32)), (6: u32)), (#_uMul returning u32)((#_uRem returning u32)((#_uRem returning u32)(uConst!(MAX_INPUT_LEN: u32), (3: u32)), (2: u32)), (#_uAdd returning u32)((1: u32), (#_uMul returning u32)(uConst!(HasPadding: u32), (2: u32))))), (#_uMul returning u32)((#_uDiv returning u32)((#_uRem returning u32)(uConst!(MAX_INPUT_LEN: u32), (3: u32)), (2: u32)), (#_uAdd returning u32)((1: u32), uConst!(HasPadding: u32))));
-  let raw = («noir_base64-0.0.0»::encoder::split_into_six_bit_chunks<MAX_INPUT_LEN: u32, ((((MAX_INPUT_LEN * 8) / 6) + ((HasPadding + 1) * ((MAX_INPUT_LEN % 3) / 2))) + (((MAX_INPUT_LEN % 3) % 2) * ((HasPadding * 2) + 1))): u32, 1: u32> as λ(Array<u8, MAX_INPUT_LEN: u32>) -> Array<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((HasPadding + 1) * ((MAX_INPUT_LEN % 3) / 2))) + (((MAX_INPUT_LEN % 3) % 2) * ((HasPadding * 2) + 1))): u32>)((«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::storage<u8, MAX_INPUT_LEN: u32> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, MAX_INPUT_LEN: u32>) -> Array<u8, MAX_INPUT_LEN: u32>)(input));
-  let real_length = («std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::len<u8, MAX_INPUT_LEN: u32> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, MAX_INPUT_LEN: u32>) -> u32)(input);
+  let raw = («noir_base64-0.0.0»::encoder::split_into_six_bit_chunks<MAX_INPUT_LEN: u32, ((((MAX_INPUT_LEN * 8) / 6) + ((HasPadding + 1) * ((MAX_INPUT_LEN % 3) / 2))) + (((MAX_INPUT_LEN % 3) % 2) * ((HasPadding * 2) + 1))): u32, 1: u32> as λ(Array<u8, MAX_INPUT_LEN: u32>) -> Array<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((HasPadding + 1) * ((MAX_INPUT_LEN % 3) / 2))) + (((MAX_INPUT_LEN % 3) % 2) * ((HasPadding * 2) + 1))): u32>)((std::collections::bounded_vec::BoundedVec::storage<u8, MAX_INPUT_LEN: u32> as λ(std::collections::bounded_vec::BoundedVec<u8, MAX_INPUT_LEN: u32>) -> Array<u8, MAX_INPUT_LEN: u32>)(input));
+  let real_length = (std::collections::bounded_vec::BoundedVec::len<u8, MAX_INPUT_LEN: u32> as λ(std::collections::bounded_vec::BoundedVec<u8, MAX_INPUT_LEN: u32>) -> u32)(input);
   let real_length_mod_3 = if (#_uEq returning bool)(uConst!(HasPadding: u32), (1: u32)) then {
     (#_uRem returning u32)(real_length, (3: u32))
   } else {
@@ -90,7 +90,7 @@ noir_def «noir_base64-0.0.0»::encoder::encode_var<MAX_INPUT_LEN: u32, UseURLTa
   };
   if (#_uGt returning bool)(uConst!(MAX_INPUT_LEN: u32), (0: u32)) then {
     let index = (#_fAdd returning Field)((#_cast returning Field)((#_arrayIndex returning u8)(raw, (0: u32))), (#_fMul returning Field)((#_arrayIndex returning Field)(boundary_flags, (0: u32)), (64: Field)));
-    («std-1.0.0-beta.14»::field::assert_max_bit_size<32: u32> as λ(Field) -> Unit)(index);
+    (std::field::assert_max_bit_size<32: u32> as λ(Field) -> Unit)(index);
     let index = (#_cast returning u32)(index);
     (result_arr[(0: u32)]: u8) = (#_arrayIndex returning u8)((«noir_base64-0.0.0»::tables::BASE64_ENCODE_BE_VAR_TABLE<> as λ() -> Array<u8, 192: u32>)(), (#_cast returning u32)(index));
     #_skip
@@ -110,19 +110,19 @@ noir_def «noir_base64-0.0.0»::encoder::encode_var<MAX_INPUT_LEN: u32, UseURLTa
       encoding_index = (#_fAdd returning Field)((#_cast returning Field)((#_arrayIndex returning u8)(raw, (#_cast returning u32)(i))), (#_fMul returning Field)(exceed_length, (64: Field)));
       #_skip
     };
-    («std-1.0.0-beta.14»::field::assert_max_bit_size<32: u32> as λ(Field) -> Unit)((#_readRef returning Field)(encoding_index));
+    (std::field::assert_max_bit_size<32: u32> as λ(Field) -> Unit)((#_readRef returning Field)(encoding_index));
     let encoding_index = (#_cast returning u32)((#_readRef returning Field)(encoding_index));
     let token = if (#_uEq returning bool)(uConst!(UseURLTable: u1), (1: u1)) then {
       (#_arrayIndex returning u8)((«noir_base64-0.0.0»::tables::BASE64_ENCODE_BE_VAR_TABLE<> as λ() -> Array<u8, 192: u32>)(), (#_cast returning u32)(encoding_index))
     } else {
       (#_arrayIndex returning u8)((«noir_base64-0.0.0»::tables::BASE64URL_ENCODE_BE_VAR_TABLE<> as λ() -> Array<u8, 192: u32>)(), (#_cast returning u32)(encoding_index))
     };
-    («std-1.0.0-beta.14»::field::assert_max_bit_size<7: u32> as λ(Field) -> Unit)((#_cast returning Field)(token));
+    (std::field::assert_max_bit_size<7: u32> as λ(Field) -> Unit)((#_cast returning Field)(token));
     (result_arr[i]: u8) = token;
     #_skip
   };
-  let r = (#_ref returning & «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((HasPadding + 1) * ((MAX_INPUT_LEN % 3) / 2))) + (((MAX_INPUT_LEN % 3) % 2) * ((HasPadding * 2) + 1))): u32>)((«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::from_parts_unchecked<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((HasPadding + 1) * ((MAX_INPUT_LEN % 3) / 2))) + (((MAX_INPUT_LEN % 3) % 2) * ((HasPadding * 2) + 1))): u32> as λ(Array<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((HasPadding + 1) * ((MAX_INPUT_LEN % 3) / 2))) + (((MAX_INPUT_LEN % 3) % 2) * ((HasPadding * 2) + 1))): u32>, u32) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((HasPadding + 1) * ((MAX_INPUT_LEN % 3) / 2))) + (((MAX_INPUT_LEN % 3) % 2) * ((HasPadding * 2) + 1))): u32>)((#_readRef returning Array<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((HasPadding + 1) * ((MAX_INPUT_LEN % 3) / 2))) + (((MAX_INPUT_LEN % 3) % 2) * ((HasPadding * 2) + 1))): u32>)(result_arr), final_length));
-  (#_readRef returning «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((HasPadding + 1) * ((MAX_INPUT_LEN % 3) / 2))) + (((MAX_INPUT_LEN % 3) % 2) * ((HasPadding * 2) + 1))): u32>)(r)
+  let r = (#_ref returning & std::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((HasPadding + 1) * ((MAX_INPUT_LEN % 3) / 2))) + (((MAX_INPUT_LEN % 3) % 2) * ((HasPadding * 2) + 1))): u32>)((std::collections::bounded_vec::BoundedVec::from_parts_unchecked<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((HasPadding + 1) * ((MAX_INPUT_LEN % 3) / 2))) + (((MAX_INPUT_LEN % 3) % 2) * ((HasPadding * 2) + 1))): u32> as λ(Array<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((HasPadding + 1) * ((MAX_INPUT_LEN % 3) / 2))) + (((MAX_INPUT_LEN % 3) % 2) * ((HasPadding * 2) + 1))): u32>, u32) -> std::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((HasPadding + 1) * ((MAX_INPUT_LEN % 3) / 2))) + (((MAX_INPUT_LEN % 3) % 2) * ((HasPadding * 2) + 1))): u32>)((#_readRef returning Array<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((HasPadding + 1) * ((MAX_INPUT_LEN % 3) / 2))) + (((MAX_INPUT_LEN % 3) % 2) * ((HasPadding * 2) + 1))): u32>)(result_arr), final_length));
+  (#_readRef returning std::collections::bounded_vec::BoundedVec<u8, ((((MAX_INPUT_LEN * 8) / 6) + ((HasPadding + 1) * ((MAX_INPUT_LEN % 3) / 2))) + (((MAX_INPUT_LEN % 3) % 2) * ((HasPadding * 2) + 1))): u32>)(r)
 }
 
 noir_def «noir_base64-0.0.0»::encoder::split_into_six_bit_chunks<InputBytes: u32, OutputElements: u32, HasPadding: u32>(input: Array<u8, InputBytes: u32>) -> Array<u8, OutputElements: u32> := {
@@ -221,7 +221,7 @@ noir_def «noir_base64-0.0.0»::encoder::test_encode_elements<>() -> Unit := {
   let ascii_expected = (#_mkArray returning Array<u8, 43: u32>)((71: u8), (120: u8), (77: u8), (108: u8), (103: u8), (119: u8), (76: u8), (105: u8), (121: u8), (112: u8), (110: u8), (86: u8), (114: u8), (69: u8), (50: u8), (67: u8), (48: u8), (83: u8), (102: u8), (52: u8), (121: u8), (122: u8), (104: u8), (99: u8), (87: u8), (84: u8), (107: u8), (65: u8), (104: u8), (83: u8), (90: u8), (53: u8), (43: u8), (87: u8), (69: u8), (82: u8), (104: u8), (75: u8), (104: u8), (88: u8), (116: u8), (108: u8), (85: u8));
   let input = (#_mkArray returning Array<u8, 43: u32>)((6: u8), (49: u8), (12: u8), (37: u8), (32: u8), (48: u8), (11: u8), (34: u8), (50: u8), (41: u8), (39: u8), (21: u8), (43: u8), (4: u8), (54: u8), (2: u8), (52: u8), (18: u8), (31: u8), (56: u8), (50: u8), (51: u8), (33: u8), (28: u8), (22: u8), (19: u8), (36: u8), (0: u8), (33: u8), (18: u8), (25: u8), (57: u8), (62: u8), (22: u8), (4: u8), (17: u8), (33: u8), (10: u8), (33: u8), (23: u8), (45: u8), (37: u8), (20: u8));
   let ascii_result = («noir_base64-0.0.0»::encoder::encode_elements<43: u32, 0: u1> as λ(Array<u8, 43: u32>) -> Array<u8, 43: u32>)(input);
-  (#_assert returning Unit)(((Array<u8, 43: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 43: u32>, Array<u8, 43: u32>) -> bool)(ascii_result, ascii_expected));
+  (#_assert returning Unit)(((Array<u8, 43: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 43: u32>, Array<u8, 43: u32>) -> bool)(ascii_result, ascii_expected));
   #_skip
 }
 
@@ -229,7 +229,7 @@ noir_def «noir_base64-0.0.0»::encoder::test_encode_empty<>() -> Unit := {
   let input = (#_mkArray returning Array<u8, 0: u32>)();
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBE::encode<0: u32> as λ(Array<u8, 0: u32>) -> Array<u8, 0: u32>)(input);
   let expected = (#_mkArray returning Array<u8, 0: u32>)();
-  (#_assert returning Unit)(((Array<u8, 0: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 0: u32>, Array<u8, 0: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 0: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 0: u32>, Array<u8, 0: u32>) -> bool)(result, expected));
   #_skip
 }
 
@@ -237,15 +237,15 @@ noir_def «noir_base64-0.0.0»::encoder::test_encode_padding<>() -> Unit := {
   let input = (#_mkArray returning Array<u8, 1: u32>)((102: u8));
   let expected = (#_mkArray returning Array<u8, 4: u32>)((90: u8), (103: u8), (61: u8), (61: u8));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBE::encode<1: u32> as λ(Array<u8, 1: u32>) -> Array<u8, 4: u32>)(input);
-  (#_assert returning Unit)(((Array<u8, 4: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 4: u32>, Array<u8, 4: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 4: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 4: u32>, Array<u8, 4: u32>) -> bool)(result, expected));
   let input = (#_mkArray returning Array<u8, 2: u32>)((102: u8), (111: u8));
   let expected = (#_mkArray returning Array<u8, 4: u32>)((90: u8), (109: u8), (56: u8), (61: u8));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBE::encode<2: u32> as λ(Array<u8, 2: u32>) -> Array<u8, 4: u32>)(input);
-  (#_assert returning Unit)(((Array<u8, 4: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 4: u32>, Array<u8, 4: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 4: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 4: u32>, Array<u8, 4: u32>) -> bool)(result, expected));
   let input = (#_mkArray returning Array<u8, 3: u32>)((102: u8), (111: u8), (111: u8));
   let expected = (#_mkArray returning Array<u8, 4: u32>)((90: u8), (109: u8), (57: u8), (118: u8));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBE::encode<3: u32> as λ(Array<u8, 3: u32>) -> Array<u8, 4: u32>)(input);
-  (#_assert returning Unit)(((Array<u8, 4: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 4: u32>, Array<u8, 4: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 4: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 4: u32>, Array<u8, 4: u32>) -> bool)(result, expected));
   #_skip
 }
 
@@ -253,15 +253,15 @@ noir_def «noir_base64-0.0.0»::encoder::test_encode_standard_no_pad<>() -> Unit
   let input = (#_mkArray returning Array<u8, 1: u32>)((102: u8));
   let expected = (#_mkArray returning Array<u8, 2: u32>)((90: u8), (103: u8));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBENoPad::encode<1: u32> as λ(Array<u8, 1: u32>) -> Array<u8, 2: u32>)(input);
-  (#_assert returning Unit)(((Array<u8, 2: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 2: u32>, Array<u8, 2: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 2: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 2: u32>, Array<u8, 2: u32>) -> bool)(result, expected));
   let input = (#_mkArray returning Array<u8, 2: u32>)((102: u8), (111: u8));
   let expected = (#_mkArray returning Array<u8, 3: u32>)((90: u8), (109: u8), (56: u8));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBENoPad::encode<2: u32> as λ(Array<u8, 2: u32>) -> Array<u8, 3: u32>)(input);
-  (#_assert returning Unit)(((Array<u8, 3: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 3: u32>, Array<u8, 3: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 3: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 3: u32>, Array<u8, 3: u32>) -> bool)(result, expected));
   let input = (#_mkArray returning Array<u8, 3: u32>)((102: u8), (111: u8), (111: u8));
   let expected = (#_mkArray returning Array<u8, 4: u32>)((90: u8), (109: u8), (57: u8), (118: u8));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBENoPad::encode<3: u32> as λ(Array<u8, 3: u32>) -> Array<u8, 4: u32>)(input);
-  (#_assert returning Unit)(((Array<u8, 4: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 4: u32>, Array<u8, 4: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 4: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 4: u32>, Array<u8, 4: u32>) -> bool)(result, expected));
   #_skip
 }
 
@@ -269,16 +269,16 @@ noir_def «noir_base64-0.0.0»::encoder::test_encode_max_byte<>() -> Unit := {
   let input = (#_mkArray returning Array<u8, 1: u32>)((255: u8));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBE::encode<1: u32> as λ(Array<u8, 1: u32>) -> Array<u8, 4: u32>)(input);
   let expected = (#_mkArray returning Array<u8, 4: u32>)((47: u8), (119: u8), (61: u8), (61: u8));
-  (#_assert returning Unit)(((Array<u8, 4: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 4: u32>, Array<u8, 4: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 4: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 4: u32>, Array<u8, 4: u32>) -> bool)(result, expected));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBENoPad::encode<1: u32> as λ(Array<u8, 1: u32>) -> Array<u8, 2: u32>)(input);
   let expected = (#_mkArray returning Array<u8, 2: u32>)((47: u8), (119: u8));
-  (#_assert returning Unit)(((Array<u8, 2: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 2: u32>, Array<u8, 2: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 2: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 2: u32>, Array<u8, 2: u32>) -> bool)(result, expected));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBEUrlSafeWithPad::encode<1: u32> as λ(Array<u8, 1: u32>) -> Array<u8, 4: u32>)(input);
   let expected = (#_mkArray returning Array<u8, 4: u32>)((95: u8), (119: u8), (61: u8), (61: u8));
-  (#_assert returning Unit)(((Array<u8, 4: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 4: u32>, Array<u8, 4: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 4: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 4: u32>, Array<u8, 4: u32>) -> bool)(result, expected));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBEUrlSafe::encode<1: u32> as λ(Array<u8, 1: u32>) -> Array<u8, 2: u32>)(input);
   let expected = (#_mkArray returning Array<u8, 2: u32>)((95: u8), (119: u8));
-  (#_assert returning Unit)(((Array<u8, 2: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 2: u32>, Array<u8, 2: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 2: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 2: u32>, Array<u8, 2: u32>) -> bool)(result, expected));
   #_skip
 }
 
@@ -286,13 +286,13 @@ noir_def «noir_base64-0.0.0»::encoder::test_encode_ascii<>() -> Unit := {
   let input = (#_mkArray returning Array<u8, 12: u32>)((72: u8), (101: u8), (108: u8), (108: u8), (111: u8), (32: u8), (87: u8), (111: u8), (114: u8), (108: u8), (100: u8), (33: u8));
   let expected = (#_mkArray returning Array<u8, 16: u32>)((83: u8), (71: u8), (86: u8), (115: u8), (98: u8), (71: u8), (56: u8), (103: u8), (86: u8), (50: u8), (57: u8), (121: u8), (98: u8), (71: u8), (81: u8), (104: u8));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBE::encode<12: u32> as λ(Array<u8, 12: u32>) -> Array<u8, 16: u32>)(input);
-  (#_assert returning Unit)(((Array<u8, 16: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 16: u32>, Array<u8, 16: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 16: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 16: u32>, Array<u8, 16: u32>) -> bool)(result, expected));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBENoPad::encode<12: u32> as λ(Array<u8, 12: u32>) -> Array<u8, 16: u32>)(input);
-  (#_assert returning Unit)(((Array<u8, 16: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 16: u32>, Array<u8, 16: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 16: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 16: u32>, Array<u8, 16: u32>) -> bool)(result, expected));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBEUrlSafeWithPad::encode<12: u32> as λ(Array<u8, 12: u32>) -> Array<u8, 16: u32>)(input);
-  (#_assert returning Unit)(((Array<u8, 16: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 16: u32>, Array<u8, 16: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 16: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 16: u32>, Array<u8, 16: u32>) -> bool)(result, expected));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBEUrlSafeWithPad::encode<12: u32> as λ(Array<u8, 12: u32>) -> Array<u8, 16: u32>)(input);
-  (#_assert returning Unit)(((Array<u8, 16: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 16: u32>, Array<u8, 16: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 16: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 16: u32>, Array<u8, 16: u32>) -> bool)(result, expected));
   #_skip
 }
 
@@ -300,13 +300,13 @@ noir_def «noir_base64-0.0.0»::encoder::test_encode_utf8<>() -> Unit := {
   let input = (#_mkArray returning Array<u8, 27: u32>)((227: u8), (129: u8), (147: u8), (227: u8), (130: u8), (147: u8), (227: u8), (129: u8), (171: u8), (227: u8), (129: u8), (161: u8), (227: u8), (129: u8), (175: u8), (227: u8), (128: u8), (129: u8), (228: u8), (184: u8), (150: u8), (231: u8), (149: u8), (140: u8), (239: u8), (188: u8), (129: u8));
   let expected = (#_mkArray returning Array<u8, 36: u32>)((52: u8), (52: u8), (71: u8), (84: u8), (52: u8), (52: u8), (75: u8), (84: u8), (52: u8), (52: u8), (71: u8), (114: u8), (52: u8), (52: u8), (71: u8), (104: u8), (52: u8), (52: u8), (71: u8), (118: u8), (52: u8), (52: u8), (67: u8), (66: u8), (53: u8), (76: u8), (105: u8), (87: u8), (53: u8), (53: u8), (87: u8), (77: u8), (55: u8), (55: u8), (121: u8), (66: u8));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBE::encode<27: u32> as λ(Array<u8, 27: u32>) -> Array<u8, 36: u32>)(input);
-  (#_assert returning Unit)(((Array<u8, 36: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 36: u32>, Array<u8, 36: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 36: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 36: u32>, Array<u8, 36: u32>) -> bool)(result, expected));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBENoPad::encode<27: u32> as λ(Array<u8, 27: u32>) -> Array<u8, 36: u32>)(input);
-  (#_assert returning Unit)(((Array<u8, 36: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 36: u32>, Array<u8, 36: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 36: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 36: u32>, Array<u8, 36: u32>) -> bool)(result, expected));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBEUrlSafeWithPad::encode<27: u32> as λ(Array<u8, 27: u32>) -> Array<u8, 36: u32>)(input);
-  (#_assert returning Unit)(((Array<u8, 36: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 36: u32>, Array<u8, 36: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 36: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 36: u32>, Array<u8, 36: u32>) -> bool)(result, expected));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBEUrlSafeWithPad::encode<27: u32> as λ(Array<u8, 27: u32>) -> Array<u8, 36: u32>)(input);
-  (#_assert returning Unit)(((Array<u8, 36: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 36: u32>, Array<u8, 36: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 36: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 36: u32>, Array<u8, 36: u32>) -> bool)(result, expected));
   #_skip
 }
 
@@ -314,10 +314,10 @@ noir_def «noir_base64-0.0.0»::encoder::test_encode_multi_chunks<>() -> Unit :=
   let input = (#_mkArray returning Array<u8, 44: u32>)((84: u8), (104: u8), (101: u8), (32: u8), (113: u8), (117: u8), (105: u8), (99: u8), (107: u8), (32: u8), (98: u8), (114: u8), (111: u8), (119: u8), (110: u8), (32: u8), (102: u8), (111: u8), (120: u8), (32: u8), (106: u8), (117: u8), (109: u8), (112: u8), (115: u8), (32: u8), (111: u8), (118: u8), (101: u8), (114: u8), (32: u8), (116: u8), (104: u8), (101: u8), (32: u8), (108: u8), (97: u8), (122: u8), (121: u8), (32: u8), (100: u8), (111: u8), (103: u8), (46: u8));
   let expected = (#_mkArray returning Array<u8, 60: u32>)((86: u8), (71: u8), (104: u8), (108: u8), (73: u8), (72: u8), (70: u8), (49: u8), (97: u8), (87: u8), (78: u8), (114: u8), (73: u8), (71: u8), (74: u8), (121: u8), (98: u8), (51: u8), (100: u8), (117: u8), (73: u8), (71: u8), (90: u8), (118: u8), (101: u8), (67: u8), (66: u8), (113: u8), (100: u8), (87: u8), (49: u8), (119: u8), (99: u8), (121: u8), (66: u8), (118: u8), (100: u8), (109: u8), (86: u8), (121: u8), (73: u8), (72: u8), (82: u8), (111: u8), (90: u8), (83: u8), (66: u8), (115: u8), (89: u8), (88: u8), (112: u8), (53: u8), (73: u8), (71: u8), (82: u8), (118: u8), (90: u8), (121: u8), (52: u8), (61: u8));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBE::encode<44: u32> as λ(Array<u8, 44: u32>) -> Array<u8, 60: u32>)(input);
-  (#_assert returning Unit)(((Array<u8, 60: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 60: u32>, Array<u8, 60: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 60: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 60: u32>, Array<u8, 60: u32>) -> bool)(result, expected));
   let expected = (#_mkArray returning Array<u8, 59: u32>)((86: u8), (71: u8), (104: u8), (108: u8), (73: u8), (72: u8), (70: u8), (49: u8), (97: u8), (87: u8), (78: u8), (114: u8), (73: u8), (71: u8), (74: u8), (121: u8), (98: u8), (51: u8), (100: u8), (117: u8), (73: u8), (71: u8), (90: u8), (118: u8), (101: u8), (67: u8), (66: u8), (113: u8), (100: u8), (87: u8), (49: u8), (119: u8), (99: u8), (121: u8), (66: u8), (118: u8), (100: u8), (109: u8), (86: u8), (121: u8), (73: u8), (72: u8), (82: u8), (111: u8), (90: u8), (83: u8), (66: u8), (115: u8), (89: u8), (88: u8), (112: u8), (53: u8), (73: u8), (71: u8), (82: u8), (118: u8), (90: u8), (121: u8), (52: u8));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBENoPad::encode<44: u32> as λ(Array<u8, 44: u32>) -> Array<u8, 59: u32>)(input);
-  (#_assert returning Unit)(((Array<u8, 59: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 59: u32>, Array<u8, 59: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 59: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 59: u32>, Array<u8, 59: u32>) -> bool)(result, expected));
   #_skip
 }
 
@@ -325,7 +325,7 @@ noir_def «noir_base64-0.0.0»::encoder::test_encode_standard<>() -> Unit := {
   let input = (#_mkArray returning Array<u8, 2: u32>)((255: u8), (224: u8));
   let expected = (#_mkArray returning Array<u8, 4: u32>)((47: u8), (43: u8), (65: u8), (61: u8));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBE::encode<2: u32> as λ(Array<u8, 2: u32>) -> Array<u8, 4: u32>)(input);
-  (#_assert returning Unit)(((Array<u8, 4: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 4: u32>, Array<u8, 4: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 4: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 4: u32>, Array<u8, 4: u32>) -> bool)(result, expected));
   #_skip
 }
 
@@ -333,7 +333,7 @@ noir_def «noir_base64-0.0.0»::encoder::test_encode_url_safe_with_pad<>() -> Un
   let input = (#_mkArray returning Array<u8, 2: u32>)((255: u8), (224: u8));
   let expected = (#_mkArray returning Array<u8, 4: u32>)((95: u8), (45: u8), (65: u8), (61: u8));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBEUrlSafeWithPad::encode<2: u32> as λ(Array<u8, 2: u32>) -> Array<u8, 4: u32>)(input);
-  (#_assert returning Unit)(((Array<u8, 4: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 4: u32>, Array<u8, 4: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 4: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 4: u32>, Array<u8, 4: u32>) -> bool)(result, expected));
   #_skip
 }
 
@@ -341,7 +341,7 @@ noir_def «noir_base64-0.0.0»::encoder::test_encode_url_safe<>() -> Unit := {
   let input = (#_mkArray returning Array<u8, 2: u32>)((255: u8), (224: u8));
   let expected = (#_mkArray returning Array<u8, 3: u32>)((95: u8), (45: u8), (65: u8));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBEUrlSafe::encode<2: u32> as λ(Array<u8, 2: u32>) -> Array<u8, 3: u32>)(input);
-  (#_assert returning Unit)(((Array<u8, 3: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 3: u32>, Array<u8, 3: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 3: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 3: u32>, Array<u8, 3: u32>) -> bool)(result, expected));
   #_skip
 }
 
@@ -349,7 +349,7 @@ noir_def «noir_base64-0.0.0»::encoder::test_encode<>() -> Unit := {
   let expected = (#_mkArray returning Array<u8, 43: u32>)((71: u8), (120: u8), (77: u8), (108: u8), (103: u8), (119: u8), (76: u8), (105: u8), (121: u8), (112: u8), (110: u8), (86: u8), (114: u8), (69: u8), (50: u8), (67: u8), (48: u8), (83: u8), (102: u8), (52: u8), (121: u8), (122: u8), (104: u8), (99: u8), (87: u8), (84: u8), (107: u8), (65: u8), (104: u8), (83: u8), (90: u8), (53: u8), (43: u8), (87: u8), (69: u8), (82: u8), (104: u8), (75: u8), (104: u8), (88: u8), (116: u8), (108: u8), (85: u8));
   let input = (#_mkArray returning Array<u8, 32: u32>)((27: u8), (19: u8), (37: u8), (131: u8), (2: u8), (226: u8), (202: u8), (153: u8), (213: u8), (172: u8), (77: u8), (130: u8), (209: u8), (39: u8), (248: u8), (203: u8), (56: u8), (92: u8), (89: u8), (57: u8), (0: u8), (133: u8), (38: u8), (121: u8), (249: u8), (97: u8), (17: u8), (132: u8), (168: u8), (87: u8), (182: u8), (85: u8));
   let result = («noir_base64-0.0.0»::encoder::Base64EncodeBENoPad::encode<32: u32> as λ(Array<u8, 32: u32>) -> Array<u8, 43: u32>)(input);
-  (#_assert returning Unit)(((Array<u8, 43: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(Array<u8, 43: u32>, Array<u8, 43: u32>) -> bool)(result, expected));
+  (#_assert returning Unit)(((Array<u8, 43: u32> as std::cmp::Eq<>)::eq<> as λ(Array<u8, 43: u32>, Array<u8, 43: u32>) -> bool)(result, expected));
   #_skip
 }
 
@@ -361,77 +361,77 @@ noir_def «noir_base64-0.0.0»::encoder::test_base64_encode_slash<>() -> Unit :=
 }
 
 noir_def «noir_base64-0.0.0»::encoder::test_encode_var_empty<>() -> Unit := {
-  let input = («std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::new<u8, 3: u32> as λ() -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 3: u32>)();
-  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBE::encode_var<3: u32> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 3: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>)(input);
-  let expected = («std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::new<u8, 4: u32> as λ() -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>)();
-  (#_assert returning Unit)(((«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>, «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>) -> bool)(result, expected));
-  let input = («std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::new<u8, 0: u32> as λ() -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 0: u32>)();
-  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBE::encode_var<0: u32> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 0: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 0: u32>)(input);
-  let expected = («std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::new<u8, 0: u32> as λ() -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 0: u32>)();
-  (#_assert returning Unit)(((«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 0: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 0: u32>, «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 0: u32>) -> bool)(result, expected));
+  let input = (std::collections::bounded_vec::BoundedVec::new<u8, 3: u32> as λ() -> std::collections::bounded_vec::BoundedVec<u8, 3: u32>)();
+  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBE::encode_var<3: u32> as λ(std::collections::bounded_vec::BoundedVec<u8, 3: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 4: u32>)(input);
+  let expected = (std::collections::bounded_vec::BoundedVec::new<u8, 4: u32> as λ() -> std::collections::bounded_vec::BoundedVec<u8, 4: u32>)();
+  (#_assert returning Unit)(((std::collections::bounded_vec::BoundedVec<u8, 4: u32> as std::cmp::Eq<>)::eq<> as λ(std::collections::bounded_vec::BoundedVec<u8, 4: u32>, std::collections::bounded_vec::BoundedVec<u8, 4: u32>) -> bool)(result, expected));
+  let input = (std::collections::bounded_vec::BoundedVec::new<u8, 0: u32> as λ() -> std::collections::bounded_vec::BoundedVec<u8, 0: u32>)();
+  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBE::encode_var<0: u32> as λ(std::collections::bounded_vec::BoundedVec<u8, 0: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 0: u32>)(input);
+  let expected = (std::collections::bounded_vec::BoundedVec::new<u8, 0: u32> as λ() -> std::collections::bounded_vec::BoundedVec<u8, 0: u32>)();
+  (#_assert returning Unit)(((std::collections::bounded_vec::BoundedVec<u8, 0: u32> as std::cmp::Eq<>)::eq<> as λ(std::collections::bounded_vec::BoundedVec<u8, 0: u32>, std::collections::bounded_vec::BoundedVec<u8, 0: u32>) -> bool)(result, expected));
   #_skip
 }
 
 noir_def «noir_base64-0.0.0»::encoder::test_encode_var_padding<>() -> Unit := {
-  let input = («std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::from_array<u8, 3: u32, 1: u32> as λ(Array<u8, 1: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 3: u32>)((#_mkArray returning Array<u8, 1: u32>)((102: u8)));
-  let expected = («std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::from_array<u8, 4: u32> as λ(Array<u8, 4: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>)((#_mkArray returning Array<u8, 4: u32>)((90: u8), (103: u8), (61: u8), (61: u8)));
-  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBE::encode_var<3: u32> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 3: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>)(input);
-  (#_assert returning Unit)(((«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>, «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>) -> bool)(result, expected));
-  let input = («std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::from_array<u8, 3: u32, 2: u32> as λ(Array<u8, 2: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 3: u32>)((#_mkArray returning Array<u8, 2: u32>)((102: u8), (111: u8)));
-  let expected = («std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::from_array<u8, 4: u32> as λ(Array<u8, 4: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>)((#_mkArray returning Array<u8, 4: u32>)((90: u8), (109: u8), (56: u8), (61: u8)));
-  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBE::encode_var<3: u32> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 3: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>)(input);
-  (#_assert returning Unit)(((«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>, «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>) -> bool)(result, expected));
-  let input = («std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::from_array<u8, 3: u32> as λ(Array<u8, 3: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 3: u32>)((#_mkArray returning Array<u8, 3: u32>)((102: u8), (111: u8), (111: u8)));
-  let expected = («std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::from_array<u8, 4: u32> as λ(Array<u8, 4: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>)((#_mkArray returning Array<u8, 4: u32>)((90: u8), (109: u8), (57: u8), (118: u8)));
-  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBE::encode_var<3: u32> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 3: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>)(input);
-  (#_assert returning Unit)(((«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>, «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>) -> bool)(result, expected));
+  let input = (std::collections::bounded_vec::BoundedVec::from_array<u8, 3: u32, 1: u32> as λ(Array<u8, 1: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 3: u32>)((#_mkArray returning Array<u8, 1: u32>)((102: u8)));
+  let expected = (std::collections::bounded_vec::BoundedVec::from_array<u8, 4: u32> as λ(Array<u8, 4: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 4: u32>)((#_mkArray returning Array<u8, 4: u32>)((90: u8), (103: u8), (61: u8), (61: u8)));
+  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBE::encode_var<3: u32> as λ(std::collections::bounded_vec::BoundedVec<u8, 3: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 4: u32>)(input);
+  (#_assert returning Unit)(((std::collections::bounded_vec::BoundedVec<u8, 4: u32> as std::cmp::Eq<>)::eq<> as λ(std::collections::bounded_vec::BoundedVec<u8, 4: u32>, std::collections::bounded_vec::BoundedVec<u8, 4: u32>) -> bool)(result, expected));
+  let input = (std::collections::bounded_vec::BoundedVec::from_array<u8, 3: u32, 2: u32> as λ(Array<u8, 2: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 3: u32>)((#_mkArray returning Array<u8, 2: u32>)((102: u8), (111: u8)));
+  let expected = (std::collections::bounded_vec::BoundedVec::from_array<u8, 4: u32> as λ(Array<u8, 4: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 4: u32>)((#_mkArray returning Array<u8, 4: u32>)((90: u8), (109: u8), (56: u8), (61: u8)));
+  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBE::encode_var<3: u32> as λ(std::collections::bounded_vec::BoundedVec<u8, 3: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 4: u32>)(input);
+  (#_assert returning Unit)(((std::collections::bounded_vec::BoundedVec<u8, 4: u32> as std::cmp::Eq<>)::eq<> as λ(std::collections::bounded_vec::BoundedVec<u8, 4: u32>, std::collections::bounded_vec::BoundedVec<u8, 4: u32>) -> bool)(result, expected));
+  let input = (std::collections::bounded_vec::BoundedVec::from_array<u8, 3: u32> as λ(Array<u8, 3: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 3: u32>)((#_mkArray returning Array<u8, 3: u32>)((102: u8), (111: u8), (111: u8)));
+  let expected = (std::collections::bounded_vec::BoundedVec::from_array<u8, 4: u32> as λ(Array<u8, 4: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 4: u32>)((#_mkArray returning Array<u8, 4: u32>)((90: u8), (109: u8), (57: u8), (118: u8)));
+  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBE::encode_var<3: u32> as λ(std::collections::bounded_vec::BoundedVec<u8, 3: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 4: u32>)(input);
+  (#_assert returning Unit)(((std::collections::bounded_vec::BoundedVec<u8, 4: u32> as std::cmp::Eq<>)::eq<> as λ(std::collections::bounded_vec::BoundedVec<u8, 4: u32>, std::collections::bounded_vec::BoundedVec<u8, 4: u32>) -> bool)(result, expected));
   #_skip
 }
 
 noir_def «noir_base64-0.0.0»::encoder::test_encode_var_standard_no_pad<>() -> Unit := {
-  let input = («std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::from_array<u8, 3: u32, 1: u32> as λ(Array<u8, 1: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 3: u32>)((#_mkArray returning Array<u8, 1: u32>)((102: u8)));
-  let expected = («std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::from_array<u8, 4: u32, 2: u32> as λ(Array<u8, 2: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>)((#_mkArray returning Array<u8, 2: u32>)((90: u8), (103: u8)));
-  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBENoPad::encode_var<3: u32> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 3: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>)(input);
-  (#_assert returning Unit)(((«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>, «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>) -> bool)(result, expected));
-  let input = («std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::from_array<u8, 3: u32, 2: u32> as λ(Array<u8, 2: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 3: u32>)((#_mkArray returning Array<u8, 2: u32>)((102: u8), (111: u8)));
-  let expected = («std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::from_array<u8, 4: u32, 3: u32> as λ(Array<u8, 3: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>)((#_mkArray returning Array<u8, 3: u32>)((90: u8), (109: u8), (56: u8)));
-  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBENoPad::encode_var<3: u32> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 3: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>)(input);
-  (#_assert returning Unit)(((«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>, «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>) -> bool)(result, expected));
-  let input = («std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::from_array<u8, 3: u32> as λ(Array<u8, 3: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 3: u32>)((#_mkArray returning Array<u8, 3: u32>)((102: u8), (111: u8), (111: u8)));
-  let expected = («std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::from_array<u8, 4: u32> as λ(Array<u8, 4: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>)((#_mkArray returning Array<u8, 4: u32>)((90: u8), (109: u8), (57: u8), (118: u8)));
-  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBENoPad::encode_var<3: u32> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 3: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>)(input);
-  (#_assert returning Unit)(((«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>, «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 4: u32>) -> bool)(result, expected));
+  let input = (std::collections::bounded_vec::BoundedVec::from_array<u8, 3: u32, 1: u32> as λ(Array<u8, 1: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 3: u32>)((#_mkArray returning Array<u8, 1: u32>)((102: u8)));
+  let expected = (std::collections::bounded_vec::BoundedVec::from_array<u8, 4: u32, 2: u32> as λ(Array<u8, 2: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 4: u32>)((#_mkArray returning Array<u8, 2: u32>)((90: u8), (103: u8)));
+  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBENoPad::encode_var<3: u32> as λ(std::collections::bounded_vec::BoundedVec<u8, 3: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 4: u32>)(input);
+  (#_assert returning Unit)(((std::collections::bounded_vec::BoundedVec<u8, 4: u32> as std::cmp::Eq<>)::eq<> as λ(std::collections::bounded_vec::BoundedVec<u8, 4: u32>, std::collections::bounded_vec::BoundedVec<u8, 4: u32>) -> bool)(result, expected));
+  let input = (std::collections::bounded_vec::BoundedVec::from_array<u8, 3: u32, 2: u32> as λ(Array<u8, 2: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 3: u32>)((#_mkArray returning Array<u8, 2: u32>)((102: u8), (111: u8)));
+  let expected = (std::collections::bounded_vec::BoundedVec::from_array<u8, 4: u32, 3: u32> as λ(Array<u8, 3: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 4: u32>)((#_mkArray returning Array<u8, 3: u32>)((90: u8), (109: u8), (56: u8)));
+  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBENoPad::encode_var<3: u32> as λ(std::collections::bounded_vec::BoundedVec<u8, 3: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 4: u32>)(input);
+  (#_assert returning Unit)(((std::collections::bounded_vec::BoundedVec<u8, 4: u32> as std::cmp::Eq<>)::eq<> as λ(std::collections::bounded_vec::BoundedVec<u8, 4: u32>, std::collections::bounded_vec::BoundedVec<u8, 4: u32>) -> bool)(result, expected));
+  let input = (std::collections::bounded_vec::BoundedVec::from_array<u8, 3: u32> as λ(Array<u8, 3: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 3: u32>)((#_mkArray returning Array<u8, 3: u32>)((102: u8), (111: u8), (111: u8)));
+  let expected = (std::collections::bounded_vec::BoundedVec::from_array<u8, 4: u32> as λ(Array<u8, 4: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 4: u32>)((#_mkArray returning Array<u8, 4: u32>)((90: u8), (109: u8), (57: u8), (118: u8)));
+  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBENoPad::encode_var<3: u32> as λ(std::collections::bounded_vec::BoundedVec<u8, 3: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 4: u32>)(input);
+  (#_assert returning Unit)(((std::collections::bounded_vec::BoundedVec<u8, 4: u32> as std::cmp::Eq<>)::eq<> as λ(std::collections::bounded_vec::BoundedVec<u8, 4: u32>, std::collections::bounded_vec::BoundedVec<u8, 4: u32>) -> bool)(result, expected));
   #_skip
 }
 
 noir_def «noir_base64-0.0.0»::encoder::test_encode_var<>() -> Unit := {
-  let input = («std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::from_array<u8, 16: u32, 13: u32> as λ(Array<u8, 13: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 16: u32>)((#_mkArray returning Array<u8, 13: u32>)((72: u8), (101: u8), (108: u8), (108: u8), (111: u8), (44: u8), (32: u8), (87: u8), (111: u8), (114: u8), (108: u8), (100: u8), (33: u8)));
-  let expected = («std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::from_array<u8, 24: u32, 20: u32> as λ(Array<u8, 20: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 24: u32>)((#_mkArray returning Array<u8, 20: u32>)((83: u8), (71: u8), (86: u8), (115: u8), (98: u8), (71: u8), (56: u8), (115: u8), (73: u8), (70: u8), (100: u8), (118: u8), (99: u8), (109: u8), (120: u8), (107: u8), (73: u8), (81: u8), (61: u8), (61: u8)));
-  let expected_no_pad = («std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::from_array<u8, 22: u32, 18: u32> as λ(Array<u8, 18: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 22: u32>)((#_mkArray returning Array<u8, 18: u32>)((83: u8), (71: u8), (86: u8), (115: u8), (98: u8), (71: u8), (56: u8), (115: u8), (73: u8), (70: u8), (100: u8), (118: u8), (99: u8), (109: u8), (120: u8), (107: u8), (73: u8), (81: u8)));
-  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBE::encode_var<16: u32> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 16: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 24: u32>)(input);
-  («std-1.0.0-beta.14»::println<FmtString<17: u32, Tuple<«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 24: u32> > > > as λ(FmtString<17: u32, Tuple<«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 24: u32> > >) -> Unit)((#_mkFormatString returning FmtString<17: u32, Tuple<«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 24: u32> > >)("result = {}{result}", result));
-  (#_assert returning Unit)(((«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 24: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 24: u32>, «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 24: u32>) -> bool)(result, expected));
-  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBENoPad::encode_var<16: u32> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 16: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 22: u32>)(input);
-  (#_assert returning Unit)(((«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 22: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 22: u32>, «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 22: u32>) -> bool)(result, expected_no_pad));
-  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBEUrlSafeWithPad::encode_var<16: u32> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 16: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 24: u32>)(input);
-  (#_assert returning Unit)(((«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 24: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 24: u32>, «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 24: u32>) -> bool)(result, expected));
-  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBEUrlSafe::encode_var<16: u32> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 16: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 22: u32>)(input);
-  (#_assert returning Unit)(((«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 22: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 22: u32>, «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 22: u32>) -> bool)(result, expected_no_pad));
+  let input = (std::collections::bounded_vec::BoundedVec::from_array<u8, 16: u32, 13: u32> as λ(Array<u8, 13: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 16: u32>)((#_mkArray returning Array<u8, 13: u32>)((72: u8), (101: u8), (108: u8), (108: u8), (111: u8), (44: u8), (32: u8), (87: u8), (111: u8), (114: u8), (108: u8), (100: u8), (33: u8)));
+  let expected = (std::collections::bounded_vec::BoundedVec::from_array<u8, 24: u32, 20: u32> as λ(Array<u8, 20: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 24: u32>)((#_mkArray returning Array<u8, 20: u32>)((83: u8), (71: u8), (86: u8), (115: u8), (98: u8), (71: u8), (56: u8), (115: u8), (73: u8), (70: u8), (100: u8), (118: u8), (99: u8), (109: u8), (120: u8), (107: u8), (73: u8), (81: u8), (61: u8), (61: u8)));
+  let expected_no_pad = (std::collections::bounded_vec::BoundedVec::from_array<u8, 22: u32, 18: u32> as λ(Array<u8, 18: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 22: u32>)((#_mkArray returning Array<u8, 18: u32>)((83: u8), (71: u8), (86: u8), (115: u8), (98: u8), (71: u8), (56: u8), (115: u8), (73: u8), (70: u8), (100: u8), (118: u8), (99: u8), (109: u8), (120: u8), (107: u8), (73: u8), (81: u8)));
+  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBE::encode_var<16: u32> as λ(std::collections::bounded_vec::BoundedVec<u8, 16: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 24: u32>)(input);
+  (std::println<FmtString<17: u32, Tuple<std::collections::bounded_vec::BoundedVec<u8, 24: u32> > > > as λ(FmtString<17: u32, Tuple<std::collections::bounded_vec::BoundedVec<u8, 24: u32> > >) -> Unit)((#_mkFormatString returning FmtString<17: u32, Tuple<std::collections::bounded_vec::BoundedVec<u8, 24: u32> > >)("result = {}{result}", result));
+  (#_assert returning Unit)(((std::collections::bounded_vec::BoundedVec<u8, 24: u32> as std::cmp::Eq<>)::eq<> as λ(std::collections::bounded_vec::BoundedVec<u8, 24: u32>, std::collections::bounded_vec::BoundedVec<u8, 24: u32>) -> bool)(result, expected));
+  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBENoPad::encode_var<16: u32> as λ(std::collections::bounded_vec::BoundedVec<u8, 16: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 22: u32>)(input);
+  (#_assert returning Unit)(((std::collections::bounded_vec::BoundedVec<u8, 22: u32> as std::cmp::Eq<>)::eq<> as λ(std::collections::bounded_vec::BoundedVec<u8, 22: u32>, std::collections::bounded_vec::BoundedVec<u8, 22: u32>) -> bool)(result, expected_no_pad));
+  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBEUrlSafeWithPad::encode_var<16: u32> as λ(std::collections::bounded_vec::BoundedVec<u8, 16: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 24: u32>)(input);
+  (#_assert returning Unit)(((std::collections::bounded_vec::BoundedVec<u8, 24: u32> as std::cmp::Eq<>)::eq<> as λ(std::collections::bounded_vec::BoundedVec<u8, 24: u32>, std::collections::bounded_vec::BoundedVec<u8, 24: u32>) -> bool)(result, expected));
+  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBEUrlSafe::encode_var<16: u32> as λ(std::collections::bounded_vec::BoundedVec<u8, 16: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 22: u32>)(input);
+  (#_assert returning Unit)(((std::collections::bounded_vec::BoundedVec<u8, 22: u32> as std::cmp::Eq<>)::eq<> as λ(std::collections::bounded_vec::BoundedVec<u8, 22: u32>, std::collections::bounded_vec::BoundedVec<u8, 22: u32>) -> bool)(result, expected_no_pad));
   #_skip
 }
 
 noir_def «noir_base64-0.0.0»::encoder::test_encode_var_multi_chunks<>() -> Unit := {
-  let input = («std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::from_array<u8, 48: u32, 44: u32> as λ(Array<u8, 44: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 48: u32>)((#_mkArray returning Array<u8, 44: u32>)((84: u8), (104: u8), (101: u8), (32: u8), (113: u8), (117: u8), (105: u8), (99: u8), (107: u8), (32: u8), (98: u8), (114: u8), (111: u8), (119: u8), (110: u8), (32: u8), (102: u8), (111: u8), (120: u8), (32: u8), (106: u8), (117: u8), (109: u8), (112: u8), (115: u8), (32: u8), (111: u8), (118: u8), (101: u8), (114: u8), (32: u8), (116: u8), (104: u8), (101: u8), (32: u8), (108: u8), (97: u8), (122: u8), (121: u8), (32: u8), (100: u8), (111: u8), (103: u8), (46: u8)));
-  let expected = («std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::from_array<u8, 64: u32, 60: u32> as λ(Array<u8, 60: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 64: u32>)((#_mkArray returning Array<u8, 60: u32>)((86: u8), (71: u8), (104: u8), (108: u8), (73: u8), (72: u8), (70: u8), (49: u8), (97: u8), (87: u8), (78: u8), (114: u8), (73: u8), (71: u8), (74: u8), (121: u8), (98: u8), (51: u8), (100: u8), (117: u8), (73: u8), (71: u8), (90: u8), (118: u8), (101: u8), (67: u8), (66: u8), (113: u8), (100: u8), (87: u8), (49: u8), (119: u8), (99: u8), (121: u8), (66: u8), (118: u8), (100: u8), (109: u8), (86: u8), (121: u8), (73: u8), (72: u8), (82: u8), (111: u8), (90: u8), (83: u8), (66: u8), (115: u8), (89: u8), (88: u8), (112: u8), (53: u8), (73: u8), (71: u8), (82: u8), (118: u8), (90: u8), (121: u8), (52: u8), (61: u8)));
-  let expected_no_pad = («std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec::from_array<u8, 64: u32, 59: u32> as λ(Array<u8, 59: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 64: u32>)((#_mkArray returning Array<u8, 59: u32>)((86: u8), (71: u8), (104: u8), (108: u8), (73: u8), (72: u8), (70: u8), (49: u8), (97: u8), (87: u8), (78: u8), (114: u8), (73: u8), (71: u8), (74: u8), (121: u8), (98: u8), (51: u8), (100: u8), (117: u8), (73: u8), (71: u8), (90: u8), (118: u8), (101: u8), (67: u8), (66: u8), (113: u8), (100: u8), (87: u8), (49: u8), (119: u8), (99: u8), (121: u8), (66: u8), (118: u8), (100: u8), (109: u8), (86: u8), (121: u8), (73: u8), (72: u8), (82: u8), (111: u8), (90: u8), (83: u8), (66: u8), (115: u8), (89: u8), (88: u8), (112: u8), (53: u8), (73: u8), (71: u8), (82: u8), (118: u8), (90: u8), (121: u8), (52: u8)));
-  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBE::encode_var<48: u32> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 48: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 64: u32>)(input);
-  (#_assert returning Unit)(((«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 64: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 64: u32>, «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 64: u32>) -> bool)(result, expected));
-  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBENoPad::encode_var<48: u32> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 48: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 64: u32>)(input);
-  (#_assert returning Unit)(((«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 64: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 64: u32>, «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 64: u32>) -> bool)(result, expected_no_pad));
-  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBEUrlSafeWithPad::encode_var<48: u32> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 48: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 64: u32>)(input);
-  (#_assert returning Unit)(((«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 64: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 64: u32>, «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 64: u32>) -> bool)(result, expected));
-  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBEUrlSafe::encode_var<48: u32> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 48: u32>) -> «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 64: u32>)(input);
-  (#_assert returning Unit)(((«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 64: u32> as «std-1.0.0-beta.14»::cmp::Eq<>)::eq<> as λ(«std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 64: u32>, «std-1.0.0-beta.14»::collections::bounded_vec::BoundedVec<u8, 64: u32>) -> bool)(result, expected_no_pad));
+  let input = (std::collections::bounded_vec::BoundedVec::from_array<u8, 48: u32, 44: u32> as λ(Array<u8, 44: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 48: u32>)((#_mkArray returning Array<u8, 44: u32>)((84: u8), (104: u8), (101: u8), (32: u8), (113: u8), (117: u8), (105: u8), (99: u8), (107: u8), (32: u8), (98: u8), (114: u8), (111: u8), (119: u8), (110: u8), (32: u8), (102: u8), (111: u8), (120: u8), (32: u8), (106: u8), (117: u8), (109: u8), (112: u8), (115: u8), (32: u8), (111: u8), (118: u8), (101: u8), (114: u8), (32: u8), (116: u8), (104: u8), (101: u8), (32: u8), (108: u8), (97: u8), (122: u8), (121: u8), (32: u8), (100: u8), (111: u8), (103: u8), (46: u8)));
+  let expected = (std::collections::bounded_vec::BoundedVec::from_array<u8, 64: u32, 60: u32> as λ(Array<u8, 60: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 64: u32>)((#_mkArray returning Array<u8, 60: u32>)((86: u8), (71: u8), (104: u8), (108: u8), (73: u8), (72: u8), (70: u8), (49: u8), (97: u8), (87: u8), (78: u8), (114: u8), (73: u8), (71: u8), (74: u8), (121: u8), (98: u8), (51: u8), (100: u8), (117: u8), (73: u8), (71: u8), (90: u8), (118: u8), (101: u8), (67: u8), (66: u8), (113: u8), (100: u8), (87: u8), (49: u8), (119: u8), (99: u8), (121: u8), (66: u8), (118: u8), (100: u8), (109: u8), (86: u8), (121: u8), (73: u8), (72: u8), (82: u8), (111: u8), (90: u8), (83: u8), (66: u8), (115: u8), (89: u8), (88: u8), (112: u8), (53: u8), (73: u8), (71: u8), (82: u8), (118: u8), (90: u8), (121: u8), (52: u8), (61: u8)));
+  let expected_no_pad = (std::collections::bounded_vec::BoundedVec::from_array<u8, 64: u32, 59: u32> as λ(Array<u8, 59: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 64: u32>)((#_mkArray returning Array<u8, 59: u32>)((86: u8), (71: u8), (104: u8), (108: u8), (73: u8), (72: u8), (70: u8), (49: u8), (97: u8), (87: u8), (78: u8), (114: u8), (73: u8), (71: u8), (74: u8), (121: u8), (98: u8), (51: u8), (100: u8), (117: u8), (73: u8), (71: u8), (90: u8), (118: u8), (101: u8), (67: u8), (66: u8), (113: u8), (100: u8), (87: u8), (49: u8), (119: u8), (99: u8), (121: u8), (66: u8), (118: u8), (100: u8), (109: u8), (86: u8), (121: u8), (73: u8), (72: u8), (82: u8), (111: u8), (90: u8), (83: u8), (66: u8), (115: u8), (89: u8), (88: u8), (112: u8), (53: u8), (73: u8), (71: u8), (82: u8), (118: u8), (90: u8), (121: u8), (52: u8)));
+  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBE::encode_var<48: u32> as λ(std::collections::bounded_vec::BoundedVec<u8, 48: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 64: u32>)(input);
+  (#_assert returning Unit)(((std::collections::bounded_vec::BoundedVec<u8, 64: u32> as std::cmp::Eq<>)::eq<> as λ(std::collections::bounded_vec::BoundedVec<u8, 64: u32>, std::collections::bounded_vec::BoundedVec<u8, 64: u32>) -> bool)(result, expected));
+  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBENoPad::encode_var<48: u32> as λ(std::collections::bounded_vec::BoundedVec<u8, 48: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 64: u32>)(input);
+  (#_assert returning Unit)(((std::collections::bounded_vec::BoundedVec<u8, 64: u32> as std::cmp::Eq<>)::eq<> as λ(std::collections::bounded_vec::BoundedVec<u8, 64: u32>, std::collections::bounded_vec::BoundedVec<u8, 64: u32>) -> bool)(result, expected_no_pad));
+  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBEUrlSafeWithPad::encode_var<48: u32> as λ(std::collections::bounded_vec::BoundedVec<u8, 48: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 64: u32>)(input);
+  (#_assert returning Unit)(((std::collections::bounded_vec::BoundedVec<u8, 64: u32> as std::cmp::Eq<>)::eq<> as λ(std::collections::bounded_vec::BoundedVec<u8, 64: u32>, std::collections::bounded_vec::BoundedVec<u8, 64: u32>) -> bool)(result, expected));
+  let result = («noir_base64-0.0.0»::encoder::Base64EncodeBEUrlSafe::encode_var<48: u32> as λ(std::collections::bounded_vec::BoundedVec<u8, 48: u32>) -> std::collections::bounded_vec::BoundedVec<u8, 64: u32>)(input);
+  (#_assert returning Unit)(((std::collections::bounded_vec::BoundedVec<u8, 64: u32> as std::cmp::Eq<>)::eq<> as λ(std::collections::bounded_vec::BoundedVec<u8, 64: u32>, std::collections::bounded_vec::BoundedVec<u8, 64: u32>) -> bool)(result, expected_no_pad));
   #_skip
 }
 

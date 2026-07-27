@@ -85,8 +85,8 @@ use crate::{
     constants::{
         LAMPE_STRUCT_METHOD_SEPARATOR,
         NOIR_PATH_SEPARATOR,
+        NOIR_STDLIB_PACKAGE_NAME,
         NONE_DEPENDENCY_VERSION,
-        STDLIB_TOML,
     },
     file_generator::to_import_from_noir_path,
     lean::{
@@ -3754,7 +3754,8 @@ impl LeanGenerator<'_, '_, '_> {
         }
     }
 
-    /// Resolves the `name-version` string for the specified crate.
+    /// Resolves the `name-version` string for the specified crate, or plain
+    /// `std` for the standard library.
     /// NOTE: This is done by reading the `Nargo.toml` file for the crate, so
     /// it's a very brittle hacky solution.
     ///
@@ -3768,24 +3769,11 @@ impl LeanGenerator<'_, '_, '_> {
             return cached_name.clone();
         }
 
-        // We always want to pull the name and version for the stdlib from our
-        // embedded copy of the library, so we have to special case on its ID.
+        // The stdlib version is pinned by the Lampe binary itself, so its name
+        // is emitted without a version suffix (see
+        // `NoirPackageIdentifier::formatted`).
         let name = if crate_id.is_stdlib() {
-            let Ok(toml_content) = STDLIB_TOML.parse::<toml::Table>() else {
-                panic!("Unable to load embedded stdlib Nargo.toml")
-            };
-
-            let toml::Value::Table(package_info) = &toml_content["package"] else {
-                panic!("Embedded toml content did not contain 'package' table")
-            };
-
-            let toml::Value::String(name) = &package_info["name"] else {
-                panic!("Embedded toml content did not contain package 'name'")
-            };
-
-            let version = package_info["version"].as_str().unwrap_or(NONE_DEPENDENCY_VERSION);
-
-            format!("{LEAN_QUOTE_START}{name}-{version}{LEAN_QUOTE_END}")
+            NOIR_STDLIB_PACKAGE_NAME.to_string()
         } else {
             // Get the TOML file for the crate
             let crate_data = self.context.crate_graph.index(crate_id);

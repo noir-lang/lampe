@@ -80,10 +80,9 @@ impl FileGenerator {
     /// Generates Lean's entrypoint file ready for user's code.
     // Example path: $(project)/lampe/Example-0.0.0.lean
     fn generate_lib_file(&self) -> Result<(), Error> {
-        let output_file = self.lampe_root_dir.join(format!(
-            "{}-{}.lean",
-            &self.noir_package_identifier.name, &self.noir_package_identifier.version
-        ));
+        let output_file = self
+            .lampe_root_dir
+            .join(format!("{}.lean", self.noir_package_identifier.formatted(false)));
         overwrite_check!(output_file, self.overwrite);
 
         let mut result = String::new();
@@ -93,9 +92,8 @@ impl FileGenerator {
         writeln!(result)?;
         writeln!(
             result,
-            "import «{}-{}».{}",
-            &self.noir_package_identifier.name,
-            &self.noir_package_identifier.version,
+            "import {}.{}",
+            self.noir_package_identifier.formatted(true),
             EXTRACTED_MODULE_NAME
         )?;
         writeln!(result)?;
@@ -134,9 +132,8 @@ impl FileGenerator {
         {
             writeln!(
                 result,
-                "import «{}-{}».{}.{}",
-                &self.noir_package_identifier.name,
-                &self.noir_package_identifier.version,
+                "import {}.{}.{}",
+                self.noir_package_identifier.formatted(true),
                 EXTRACTED_MODULE_NAME,
                 import
             )?;
@@ -146,8 +143,9 @@ impl FileGenerator {
         for extracted_module in self.local_dependencies.iter().sorted() {
             writeln!(
                 result,
-                "import «{}-{}».{}",
-                &extracted_module.name, &extracted_module.version, EXTRACTED_MODULE_NAME,
+                "import {}.{}",
+                extracted_module.formatted(true),
+                EXTRACTED_MODULE_NAME,
             )?;
         }
 
@@ -155,16 +153,17 @@ impl FileGenerator {
         if let Some(stdlib_info) = &self.stdlib_info {
             writeln!(
                 result,
-                "import «{}-{}».{}",
-                stdlib_info.name, stdlib_info.version, EXTRACTED_MODULE_NAME,
+                "import {}.{}",
+                stdlib_info.formatted(true),
+                EXTRACTED_MODULE_NAME,
             )?;
         }
 
         result.push('\n');
         writeln!(
             result,
-            "namespace «{}-{}»",
-            &self.noir_package_identifier.name, &self.noir_package_identifier.version
+            "namespace {}",
+            self.noir_package_identifier.formatted(true)
         )?;
         result.push('\n');
 
@@ -183,16 +182,11 @@ impl FileGenerator {
             .external_dependencies
             .iter()
             .sorted()
-            .map(|extracted_module| {
-                format!(
-                    "«{}-{}».env",
-                    &extracted_module.name, &extracted_module.version,
-                )
-            })
+            .map(|extracted_module| format!("{}.env", extracted_module.formatted(true)))
             .join("\n  ++ ");
 
         let std_env = if let Some(stdlib_info) = &self.stdlib_info {
-            format!("«{}-{}».env", &stdlib_info.name, &stdlib_info.version)
+            format!("{}.env", stdlib_info.formatted(true))
         } else {
             String::new()
         };
@@ -258,9 +252,8 @@ impl FileGenerator {
         } else {
             writeln!(
                 result,
-                "import «{}-{}».{}.GeneratedTypes",
-                &self.noir_package_identifier.name,
-                &self.noir_package_identifier.version,
+                "import {}.{}.GeneratedTypes",
+                self.noir_package_identifier.formatted(true),
                 EXTRACTED_MODULE_NAME,
             )?;
         }
@@ -288,16 +281,16 @@ impl FileGenerator {
 
         if let Some(stdlib_info) = &self.stdlib_info {
             imports.push(format!(
-                "«{}-{}».{EXTRACTED_MODULE_NAME}.GeneratedTypes",
-                stdlib_info.name, stdlib_info.version
+                "{}.{EXTRACTED_MODULE_NAME}.GeneratedTypes",
+                stdlib_info.formatted(true)
             ));
         }
 
         // Only import from direct dependencies
         for dep in self.local_dependencies.iter().sorted() {
             imports.push(format!(
-                "«{}-{}».{EXTRACTED_MODULE_NAME}.GeneratedTypes",
-                dep.name, dep.version
+                "{}.{EXTRACTED_MODULE_NAME}.GeneratedTypes",
+                dep.formatted(true)
             ));
         }
 
@@ -320,10 +313,9 @@ fn process_root_package(
 ) -> Result<(), Error> {
     generator.generate_lib_file()?;
 
-    let lib_dir = generator.lampe_root_dir.join(format!(
-        "{}-{}",
-        &generator.noir_package_identifier.name, &generator.noir_package_identifier.version
-    ));
+    let lib_dir = generator
+        .lampe_root_dir
+        .join(generator.noir_package_identifier.formatted(false));
     ensure_directory_exists(&lib_dir)?;
 
     generator.generate_extracted_file(&lib_dir, extracted_code)?;
@@ -346,19 +338,13 @@ fn process_dependency<H: std::hash::BuildHasher>(
     dependency_info: &DependencyInfo<H>,
     overwrite: bool,
 ) -> Result<(), Error> {
-    let extracted_dep_project_dir = deps_dir.join(format!(
-        "{}-{}",
-        &extracted_dependency.name, &extracted_dependency.version
-    ));
+    let extracted_dep_project_dir = deps_dir.join(extracted_dependency.formatted(false));
     ensure_directory_exists(&extracted_dep_project_dir)?;
 
     let extracted_dep_lampe_dir = extracted_dep_project_dir.join("lampe");
     ensure_directory_exists(&extracted_dep_lampe_dir)?;
 
-    let extracted_dep_lib_dir = extracted_dep_lampe_dir.join(format!(
-        "{}-{}",
-        &extracted_dependency.name, &extracted_dependency.version
-    ));
+    let extracted_dep_lib_dir = extracted_dep_lampe_dir.join(extracted_dependency.formatted(false));
     ensure_directory_exists(&extracted_dep_lib_dir)?;
 
     let (dep_direct_dep_ids, dep_deps_with_lampe) = dependency_info
@@ -415,7 +401,7 @@ fn generate_dependency_additional_files<H: std::hash::BuildHasher>(
 
     for dep_direct_dep in dep_direct_dep_ids {
         if dependency_info.extracted_dependencies.contains_key(dep_direct_dep) {
-            let dep_name = format!("{}-{}", dep_direct_dep.name, dep_direct_dep.version);
+            let dep_name = dep_direct_dep.formatted(false);
             let dep_path = format!("../../{dep_name}/lampe");
 
             dep_additional_dependencies.push(Box::new(

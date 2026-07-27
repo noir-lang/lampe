@@ -250,11 +250,11 @@ def rewrite_lampe_stdlib_deps_to_path(lampe_dir):
     lampe_path = os.path.relpath(project_root / "Lampe", lampe_dir)
     stdlib_path = os.path.relpath(project_root / "stdlib" / "lampe", lampe_dir)
     change_toml_required_dep_to_path_by_regex(lakefile_path, '^Lampe$', lampe_path)
-    change_toml_required_dep_to_path_by_regex(lakefile_path, '^std-.*$', stdlib_path)
+    change_toml_required_dep_to_path_by_regex(lakefile_path, '^std$', stdlib_path)
     manifest_path = lampe_dir / "lake-manifest.json"
     if manifest_path.exists():
         change_manifest_required_dep_to_path_by_regex(manifest_path, '^Lampe$', lampe_path)
-        change_manifest_required_dep_to_path_by_regex(manifest_path, '^«std-.*»$', stdlib_path)
+        change_manifest_required_dep_to_path_by_regex(manifest_path, '^std$', stdlib_path)
 
 def link_packages_dir(lampe_dir):
     # Point each test's `.lake/packages` at the shared `$LAKE_PKG_DIR`

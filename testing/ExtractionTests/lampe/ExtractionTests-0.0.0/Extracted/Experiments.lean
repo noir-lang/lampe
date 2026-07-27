@@ -69,7 +69,7 @@ noir_def «ExtractionTests-0.0.0»::experiments::check<>(x: u8) -> Unit := {
   #_skip
 }
 
-noir_trait_impl[«ExtractionTests-0.0.0».impl_433]<T: Type> «std-1.0.0-beta.14»::default::Default<> for «ExtractionTests-0.0.0»::experiments::Option2<T> where [] := {
+noir_trait_impl[«ExtractionTests-0.0.0».impl_433]<T: Type> std::default::Default<> for «ExtractionTests-0.0.0»::experiments::Option2<T> where [] := {
   noir_def default<>() -> «ExtractionTests-0.0.0»::experiments::Option2<T> := {
     («ExtractionTests-0.0.0»::experiments::Option2::none<T> as λ() -> «ExtractionTests-0.0.0»::experiments::Option2<T>)()
   };
@@ -120,7 +120,7 @@ noir_def «ExtractionTests-0.0.0»::experiments::is_alias_some<T: Type>(x: @«Ex
 
 noir_def «ExtractionTests-0.0.0»::experiments::main<>() -> Unit := {
   let op1 = (#_ref returning & «ExtractionTests-0.0.0»::experiments::Option2<Field>)((«ExtractionTests-0.0.0»::experiments::Option2::some<Field> as λ(Field) -> «ExtractionTests-0.0.0»::experiments::Option2<Field>)((5: Field)));
-  let op2 = ((«ExtractionTests-0.0.0»::experiments::Option2<Field> as «std-1.0.0-beta.14»::default::Default<>)::default<> as λ() -> «ExtractionTests-0.0.0»::experiments::Option2<Field>)();
+  let op2 = ((«ExtractionTests-0.0.0»::experiments::Option2<Field> as std::default::Default<>)::default<> as λ() -> «ExtractionTests-0.0.0»::experiments::Option2<Field>)();
   let _op3 = ((«ExtractionTests-0.0.0»::experiments::Option2<Field> as «ExtractionTests-0.0.0»::experiments::MyTrait<>)::foo<> as λ(«ExtractionTests-0.0.0»::experiments::Option2<Field>) -> «ExtractionTests-0.0.0»::experiments::Option2<Field>)(if #_true then {
     (#_readRef returning «ExtractionTests-0.0.0»::experiments::Option2<Field>)(op1)
   } else {

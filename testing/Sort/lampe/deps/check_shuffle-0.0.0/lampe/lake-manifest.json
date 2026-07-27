@@ -6,7 +6,7 @@
    "subDir": "stdlib/lampe",
    "scope": "",
    "rev": "aaa17cd1b66a7735b5d429d56af51c2cb921e010",
-   "name": "«std-1.0.0-beta.12»",
+   "name": "std",
    "manifestFile": "lake-manifest.json",
    "inputRev": "main",
    "inherited": false,

@@ -52,8 +52,17 @@ pub struct DependencyInfo<H: std::hash::BuildHasher> {
 
 impl NoirPackageIdentifier {
     /// Formats the package identifier as `name-version`.
+    ///
+    /// The standard library is the exception: the stdlib version is pinned by
+    /// the Lampe binary itself, so it is formatted as plain `std` with no
+    /// version suffix. This keeps the version number out of extracted code and
+    /// handwritten proofs, avoiding mass renames on every Noir upgrade.
     #[must_use]
     pub fn formatted(&self, use_quotes: bool) -> String {
+        if self.name == NOIR_STDLIB_PACKAGE_NAME {
+            return self.name.clone();
+        }
+
         if use_quotes {
             format!(
                 "{}{}-{}{}",

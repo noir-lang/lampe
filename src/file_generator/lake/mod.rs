@@ -6,14 +6,11 @@ use std::{fmt::Write, fs, path::Path};
 use itertools::Itertools;
 use serde::Deserialize;
 
-use crate::{
-    file_generator::{
-        lake::dependency::{LeanDependency, LeanDependencyGit},
-        Error,
-        NoirPackageIdentifier,
-        LAMPE_GENERATED_COMMENT,
-    },
-    lean::{LEAN_QUOTE_END, LEAN_QUOTE_START},
+use crate::file_generator::{
+    lake::dependency::{LeanDependency, LeanDependencyGit},
+    Error,
+    NoirPackageIdentifier,
+    LAMPE_GENERATED_COMMENT,
 };
 
 pub mod dependency;
@@ -36,7 +33,7 @@ fn default_lean_dependencies(
     // We include the standard library for any project that is _not_ the standard
     // library.
     if let Some(info) = stdlib_info {
-        let dep_name = format!("{}-{}", info.name, info.version);
+        let dep_name = info.formatted(false);
         deps.push(Box::new(
             LeanDependencyGit::builder(&dep_name)
                 .git("https://github.com/reilabs/lampe")
@@ -69,26 +66,19 @@ pub fn generate_lakefile_toml(
 
     let mut result = String::new();
     writeln!(result, "# {LAMPE_GENERATED_COMMENT}")?;
-    writeln!(
-        result,
-        "name = \"{}-{}\"",
-        noir_package_identifier.name, noir_package_identifier.version
-    )?;
+    writeln!(result, "name = \"{}\"", noir_package_identifier.formatted(false))?;
     writeln!(result, "version = \"{}\"", noir_package_identifier.version)?;
     writeln!(
         result,
-        "defaultTargets = [\"{}-{}\"]",
-        noir_package_identifier.name, noir_package_identifier.version
+        "defaultTargets = [\"{}\"]",
+        noir_package_identifier.formatted(false)
     )?;
     result.push('\n');
     result.push_str("[[lean_lib]]\n");
     writeln!(
         result,
-        "name = \"{}{}-{}{}\"",
-        LEAN_QUOTE_START,
-        noir_package_identifier.name,
-        noir_package_identifier.version,
-        LEAN_QUOTE_END,
+        "name = \"{}\"",
+        noir_package_identifier.formatted(true)
     )?;
     result.push('\n');
 

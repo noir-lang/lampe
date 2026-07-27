@@ -27,34 +27,32 @@ project. For a detailed description of this structure, see the documentation on 
 directory is located right next to the `src` directory of the standard library project.
 
 For the stdlib, the theorems—along with the corresponding re-exported definitions—are available
-under `<std-version>.Stdlib.Mod`, for the file that corresponds to `mod.nr`. The definitions are
+under `Stdlib.Mod`, for the file that corresponds to `mod.nr`. The definitions are
 in the namespace `Lampe.Stdlib`. Note that not every file in the Noir stdlib has a corresponding
 file in the Lampe stdlib; this is due to having no relevant extracted definitions.
 
 For example, if you are proving properties of code that needs the definition of `Option<T>` along
-with its theorems, you can simply `import <std-version>.Stdlib.Option` and then `open Lampe.Stdlib`
+with its theorems, you can simply `import Stdlib.Option` and then `open Lampe.Stdlib`
 to make them available in your file. This will provide the type definition for `Option<T>` and the
 definitions of all relevant functions and methods, along with any theorems.
 
 Methods that are intended to be _internal_ (those that have names starting with `__`) are not
 re-exported as they are not intended (by the Noir team) to be relied upon by user code. If you
 really do need to prove a theorem involving such a definition, they can be imported directly from
-the relevant file in the `<std-version>.Extracted` namespace.
+the relevant file in the `std.Extracted` namespace.
 
 ## Versioning
 
-Each version of the `lampe` CLI tool works with a single version of the Noir compiler. This means,
-in addition, that it will default to extracting with a dependency on the _stdlib version_ that comes
-with that compiler.
+Each version of the `lampe` CLI tool works with a single version of the Noir compiler, and so it
+extracts with a dependency on the _stdlib version_ that comes with that compiler. The version in
+use is recorded in the vendored copy of the standard library at `stdlib/Nargo.toml`.
 
-In order to interoperate with code written against different Noir versions—and hence different
-stdlib versions—Lampe is properly equipped to work in projects with multiple versions of the stdlib
-in its dependency tree. To that end, you may prove properties in terms of your standard library
-version and constructs, while code you import may use a different version. This is perfectly fine,
-as the theorems statements are usually in terms of _Lean_ constructs instead of Noir ones. 
+Unlike other extracted packages—whose Lean names are suffixed with their version—the standard
+library is always extracted under the unversioned name `std`. This keeps the stdlib version out of
+extracted code and handwritten proofs, so updating Noir does not rename every stdlib reference.
 
-If you _do_ need to import a different standard library version, you can add a separate dependency
-and the namespaces including library versions will ensure that there are no name clashes unless you
-open both standard library namespaces in one place. Under such circumstances, qualified names are
-very helpful.
+A consequence of this is that a single dependency tree can only contain one extracted standard
+library: all packages in the tree must be extracted against the same Noir (and hence stdlib)
+version. Attempting to mix extractions pinned to different stdlib versions will fail loudly at
+build time, as `lake` will refuse the two conflicting `std` packages.
 
