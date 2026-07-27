@@ -23,6 +23,10 @@ Everything under the `Extracted` directory is generally intended to be solely fi
 `lampe` CLI tool's extraction process. All definitions there are generated into the namespace
 `LibName-Version.Extracted`, which can be opened to access the definitions.
 
+The standard library is the one exception to this naming scheme: it is extracted under the plain
+name `std` with no version suffix, as its version is determined by the `lampe` toolchain rather
+than declared by any project. See [the stdlib README](../stdlib/README.md) for details.
+
 ## Code Structure
 
 Within the `Extracted` directory, the extractor tool aims to replicate the structure of the original

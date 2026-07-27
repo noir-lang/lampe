@@ -47,23 +47,21 @@ Each version of the `lampe` CLI tool works with a single version of the Noir com
 extracts with a dependency on the _stdlib version_ that comes with that compiler. The version in
 use is recorded in the vendored copy of the standard library at `stdlib/Nargo.toml`.
 
-Unlike other extracted packages—whose Lean names are suffixed with their version—the standard
-library is always extracted under the unversioned name `std`. This keeps the stdlib version out of
-extracted code and handwritten proofs, so updating Noir does not rename every stdlib reference.
+The standard library is extracted under the unversioned name `std`, while every other extracted
+package has its version suffixed onto its Lean names. The stdlib's version is a property of the
+toolchain rather than of any package in the dependency tree, so it has no place in the generated
+names; this also keeps extracted code and handwritten proofs stable across Noir upgrades.
 
-A consequence of this is that a single dependency tree can only contain one extracted standard
-library: all packages in the tree must be extracted against the same Noir (and hence stdlib)
-version. Attempting to mix extractions pinned to different stdlib versions will fail loudly at
-build time, as `lake` will refuse the two conflicting `std` packages.
+It follows that a dependency tree contains exactly one standard library, and that every package in
+a tree must be extracted against the same Noir (and hence stdlib) version. This mirrors how Noir
+itself works: `nargo` compiles the whole dependency tree with a single compiler and a single
+stdlib, so the compiled circuit never contains code built against any other stdlib version, and
+proofs describe your circuit only when they are about extractions produced by that same toolchain.
+The rule is enforced at build time, as `lake` will reject a tree that requires two different `std`
+packages.
 
-This restriction is deliberate, as it mirrors how Noir itself works. `nargo` compiles the entire
-dependency tree with a single compiler and a single stdlib; a dependency never runs against a
-different stdlib version in the actual circuit. An extraction of a library made against an older
-Noir version is therefore a snapshot of _different code_ than what `nargo` compiles into your
-project, and proofs about that snapshot do not soundly transfer to the artifact you deploy. Mixing
-stdlib versions would also provide little in practice even where it built: Noir traits and types
-extract to nominal Lean names, so theorems stated against one stdlib version's traits and types
-(such as `Eq`, `Ord`, or `Option<T>`) cannot be applied to code using another's. To reuse a
-library's proofs in a project on a newer Noir version, re-extract the library against that version
-and re-check its proofs.
+To use a library's proofs in a project on a different Noir version, re-extract the library against
+that version and re-check its proofs against the new extraction. Theorems do not carry over
+between stdlib versions: Noir traits and types extract to nominal Lean names, so a result stated
+about one extraction's `Eq`, `Ord`, or `Option<T>` does not apply to another's.
 
