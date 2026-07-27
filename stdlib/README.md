@@ -56,3 +56,14 @@ library: all packages in the tree must be extracted against the same Noir (and h
 version. Attempting to mix extractions pinned to different stdlib versions will fail loudly at
 build time, as `lake` will refuse the two conflicting `std` packages.
 
+This restriction is deliberate, as it mirrors how Noir itself works. `nargo` compiles the entire
+dependency tree with a single compiler and a single stdlib; a dependency never runs against a
+different stdlib version in the actual circuit. An extraction of a library made against an older
+Noir version is therefore a snapshot of _different code_ than what `nargo` compiles into your
+project, and proofs about that snapshot do not soundly transfer to the artifact you deploy. Mixing
+stdlib versions would also provide little in practice even where it built: Noir traits and types
+extract to nominal Lean names, so theorems stated against one stdlib version's traits and types
+(such as `Eq`, `Ord`, or `Option<T>`) cannot be applied to code using another's. To reuse a
+library's proofs in a project on a newer Noir version, re-extract the library against that version
+and re-check its proofs.
+
